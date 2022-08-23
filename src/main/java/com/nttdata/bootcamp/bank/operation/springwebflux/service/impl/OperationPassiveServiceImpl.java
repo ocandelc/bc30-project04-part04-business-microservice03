@@ -114,18 +114,18 @@ public class OperationPassiveServiceImpl implements OperationPassiveServiceInte 
                     ;*/
 
 
-        int numberOfMonthlyMovementsMade = 2;
+        int numberOfMonthlyMovementsMade = 5;
 
-        //ArrayList<OperationPassive> al = new ArrayList<OperationPassive>();
+        ArrayList<OperationPassive> al = new ArrayList<OperationPassive>();
 
-            /*Flux<OperationPassive> fluxOperationPassive = operationPassiveDaoInte.findAll()
-                    .doFirst(() -> log.info("Begin readAll OperationPassive"))
-                    .doOnNext(a -> log.info(a.toString()))
-                    .flatMap(x->{return al.add(x)})
-                    .doAfterTerminate(() -> log.info("Finish readAll OperationPassive"))
-                    ;*/
+            Flux<OperationPassive> fluxOperationPassive = operationPassiveDaoInte.findAll()
+            .doFirst(() -> log.info("Begin readAll OperationPassive"))
+            .doOnNext(a -> log.info(a.toString()))
+            //.flatMap(x->{return al.add(x)})
+            .doAfterTerminate(() -> log.info("Finish readAll OperationPassive"))
+            ;
 
-        //fluxOperationPassive.subscribe(al::append);
+        fluxOperationPassive.subscribe(al::add);
         //numberOfMonthlyMovementsMade = fluxOperationPassive.count().block();
         //numberOfMonthlyMovementsMade = operationPassiveDaoInte.findAll().collectList().block().size();
 

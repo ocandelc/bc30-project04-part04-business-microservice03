@@ -233,7 +233,7 @@ public class OperationPassiveServiceImpl implements OperationPassiveServiceInte 
     public Mono<OperationPassive> readByCodeOperationPassive(String codeOperationPassive) {
         Location webclientLocation = new Location();
         Mono<Location> monoLocation = this.setupWebClientLocation.get()
-                .uri("/api/location/readByCodeLocation/{codeLocation}", "L-0000000001")
+                .uri("/api/business-microservice04-location/location/readByCodeLocation/{codeLocation}", "L-0000000001")
                 .retrieve()
                 .bodyToMono(Location.class);
 

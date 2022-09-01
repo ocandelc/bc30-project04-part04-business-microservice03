@@ -35,7 +35,7 @@ public class SpringBootMicroserviceOperationApplication implements CommandLineRu
     @Override
     public void run(String... args) throws Exception {
 
-        log.info("Init OperationPassive");
+        log.info("Init Operation");
 
     }
 
